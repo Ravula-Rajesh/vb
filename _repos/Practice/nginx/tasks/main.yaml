@@ -1,0 +1,13 @@
+- name: install inginx services
+  hosts: node
+  become: true
+  tasks: 
+  - name: install nginx
+    ansible.builtin.package:
+      name: nginx
+      state: present
+      enabled: yes
+  
+  - name: handlers
+    notify:
+      main.yaml
